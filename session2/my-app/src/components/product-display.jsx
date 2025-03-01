@@ -1,31 +1,24 @@
-import { useState } from "react"
+import { useState ,useEffect} from "react"
 import ProductCard from "./product-card"
 
-const data = [{
-    name: 'tv',
-    price: 120000,
-    quantity: 6,
-    image: '/products/tv.jpeg',
-    id: 1
-},
-{
-    name: 'smartphone',
-    price: 100000,
-    quantity: 3,
-    image: '/products/tv.jpeg',
-    id: 3
-},
-{
-    name: 'play station',
-    price: 50000,
-    quantity: 1,
-    image: '/products/tv.jpeg',
-    id: 2
-}]
 
 const ProductsDisplay = (props) => {
 
-    const [products,setProducts] = useState(data)
+    const [products,setProducts] = useState([])
+
+    useEffect(()=> {
+        const fetchData = async () => {
+
+            const data = await fetch("http://localhost:3000/data")
+            const result = await data.json() 
+        
+            setProducts(result)
+        }  
+
+        fetchData()
+
+    },[])
+
 
     const handleAddCart = (newOrder) => {
         /**
@@ -33,7 +26,9 @@ const ProductsDisplay = (props) => {
          */
 
         const productFound = products.find((item=> item.name === newOrder.name))
-        productFound.quantity--;
+       
+        // productFound.quantity--;
+        productFound.quantity = productFound.quantity - 1;
 
         console.log(productFound)
 
@@ -46,7 +41,9 @@ const ProductsDisplay = (props) => {
             /** first order */
             props.orders.push({name:newOrder.name,price:newOrder.price,quantity: 1})
         }else {
-            orderFound.quantity ++
+            // orderFound.quantity ++
+            orderFound.quantity = orderFound.quantity + 1;
+
         }
 
         props.setOrders([...props.orders])

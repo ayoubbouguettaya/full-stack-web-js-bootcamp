@@ -1,18 +1,20 @@
-const ProductCard = (props) => {
+const ProductCard = ({id,image,name,price,quantity,handleAddCart}) => {
 
-    return (<li key={props.id}>
-        <img src={props.image} alt={props.name} />
+    
+
+    return (<li key={id}>
+        <img src={image} alt={name} />
         <div>
-            <p>{props.name}</p>
-            <p style={{ color: "orange" }}>{props.price} € </p>
-            {props.quantity === 0
+            <p>{name}</p>
+            <p style={{ color: "orange" }}>{price} € </p>
+            {quantity === 0
                 ? <p style={{ color: "red" }}> out of stock </p>
-                : <p> stock  {props.quantity}</p>
+                : <p> stock  {quantity}</p>
             }
             <button 
             
-            disabled={props.quantity === 0}
-            onClick={() => { props.handleAddCart(props) }}>
+            disabled={quantity === 0}
+            onClick={() => { handleAddCart({name,price,quantity}) }}>
                 Add Cart
             </button>
         </div>
