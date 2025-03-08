@@ -5,14 +5,14 @@ const client = new Client({
   password: "password",
   host: "localhost",
   port: 5432,
-  database: "main",
+  database: "postgres",
 });
+
 
 client.connect().then(() => {
     console.log("Database connected successfully!");
-})
-.catch((err) => {
+  }).catch((err) => {
     console.error("Database connection error:", err);
-});
+  });
 
 module.exports = client;

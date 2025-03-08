@@ -9,7 +9,7 @@ const ProductsDisplay = (props) => {
     useEffect(()=> {
         const fetchData = async () => {
 
-            const data = await fetch("http://localhost:3000/data")
+            const data = await fetch("http://localhost:3000/products")
             const result = await data.json() 
         
             setProducts(result)

@@ -3,7 +3,7 @@ const ProductCard = ({id,image,name,price,quantity,handleAddCart}) => {
     
 
     return (<li key={id}>
-        <img src={image} alt={name} />
+        <img src={`./products/${image}`} alt={name} />
         <div>
             <p>{name}</p>
             <p style={{ color: "orange" }}>{price} € </p>
