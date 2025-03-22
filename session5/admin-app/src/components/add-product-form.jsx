@@ -1,4 +1,4 @@
-import { useState } from "react"
+ import { useState } from "react"
 
 const AddProductForm = () => {
 
@@ -6,7 +6,7 @@ const AddProductForm = () => {
     const [quantity, setQuantity] = useState(0)
 
     const handleOnChange = (event) => {
-        
+
         if (event.target.name === "productName") {
             console.log('handle on change product')
             setName(event.target.value)
@@ -18,6 +18,18 @@ const AddProductForm = () => {
         }
     }
 
+    const handleAddProduct = async () => {
+     const response=  await fetch("http://localhost:3000/products",{
+        body: JSON.stringify({name,quantity}),
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
+       })
+
+       console.log(response)
+
+    }
 
     return (<form className="form">
         <label>
@@ -38,8 +50,12 @@ const AddProductForm = () => {
                 onChange={handleOnChange}
             />
         </label>
-
-        <button> Ajouter</button>
+  <div>
+    <p>Name {name}</p>
+    <p>Quantity {quantity}</p>
+  </div>
+  
+        <button onClick={handleAddProduct}> Ajouter</button>
     </form>)
 
 }
