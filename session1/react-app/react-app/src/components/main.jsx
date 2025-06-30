@@ -1,4 +1,4 @@
-import CardProduct from "./card-product-iphone"
+import CardProduct from "./card-product"
 
 const Main = () => {
 
