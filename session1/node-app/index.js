@@ -1,7 +1,10 @@
 const express = require('express')
 // const fs = require('fs')
+const cors = require('cors')
 const app = express()
 const port = 3000
+
+app.use(cors())
 
 // REACT JS  Front
 app.get('/', (req, res) => {
@@ -112,13 +115,35 @@ app.get('/index.js', (req, res) => {
     `)
 })
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 app.get('/products',async (req,res)=> {
-    const response = await fetch("https://dummyjson.com/products")
-    const data = await response.json()
-    
+
+     const data = [
+        {
+            quantity: 60
+            , image: "/tech-logo/css.svg",
+             name: "speaker",
+              price: "1300"
+        },
+        {
+            quantity: 120
+            , image: "/tech-logo/css.svg",
+             name: "iphone",
+              price: "1300"
+        }
+        ,{
+            quantity: 180
+            , image: "/tech-logo/css.svg",
+             name: "tv",
+              price: "1300"
+        }
+    ]
+
     res.send(data)
 })
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import NavbarMenuList from "./navbar-menu-list";
 
 const Navbar = (props) => {
 
@@ -6,6 +7,12 @@ const Navbar = (props) => {
 
   const [menuIsHidden, setMenuIsHidden] = useState(true)
   // let menuIsHidden = true
+
+
+  useEffect(()=> {
+// console.log("menuIsHidden  is changing")
+  },[menuIsHidden])
+
   const toggleMenu = () => {
     console.log('toggle menu clicked', menuIsHidden)
     // menuIsHidden = !menuIsHidden
@@ -23,14 +30,7 @@ const Navbar = (props) => {
 
       {
         !menuIsHidden && (
-          <ul className="menu">
-            {props.orders.map(item => {
-              return (
-                <li>{item} </li>
-              )
-            })}
-          
-          </ul>
+          <NavbarMenuList orders={props.orders} />
         )
       }
 

@@ -1,3 +1,36 @@
+.card_dark{
+  background-color: #222;
+  color: white;
+}
+
+.card_light{
+  background-color: white;
+  color: black;
+}
+
+
+.loader{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader svg{
+    animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
 .slider{
   background-color: #789878;
   width: 100%;

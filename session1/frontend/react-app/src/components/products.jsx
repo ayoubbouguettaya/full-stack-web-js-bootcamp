@@ -1,15 +1,31 @@
+import { useEffect, useState } from "react"
 import CardProduct from "./card-product"
 
 const Products = (props) => {
 
-    
+    const [data,setData]= useState([])
+
+    useEffect(()=> {
+
+        fetch("http://localhost:3000/products").then(response => {
+
+            response.json().then((result => {
+
+                setData(result)
+            }))
+        })
+    },[])
+  
     return (<div className="main">
         <ul>
-            
-            <CardProduct quantity={60} setOrders={props.setOrders} image="/tech-logo/css.svg" name="iphone" price="1300" />
-            <CardProduct setOrders={props.setOrders} image="/tech-logo/js.svg" name="sdsd" price="1300" />
-            <CardProduct setOrders={props.setOrders} image="/tech-logo/aws.svg" name="dsd" price="1300" />
-            <CardProduct setOrders={props.setOrders} image="/tech-logo/.svg" name="pc" price="1300" />
+{data.map(item => {
+
+    return <CardProduct quantity={item.quantity}
+     setOrders={props.setOrders}
+      image={item.image} 
+      name={item.name}
+       price={item.price} />
+})}
         </ul>
 
     </div>)
