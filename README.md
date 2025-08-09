@@ -2,4 +2,8 @@
 
 in this repository you will find all the code snippets and small project that was build during the fullstack JS bootcamp provided by me at @ Itcomp Academy (In person).
 
+check the branch ;)
+
+- promo 2
+- main  (ongoing promo)
 
