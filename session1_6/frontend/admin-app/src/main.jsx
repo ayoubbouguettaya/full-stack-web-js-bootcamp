@@ -5,23 +5,21 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import App from './pages/App.jsx'
-import Example from './components/example-tailwind.jsx';
-import AboutUsPage from './pages/about.jsx';
-import Layout from './components/layout.jsx';
-import Layout2 from './components/layout2.jsx';
-import Formulaire2 from './components/form2.jsx';
+import './App.css'
+import AddProductForm from './components/add-product-form.jsx';
+import DetailProduct from './pages/detail-product.jsx';
+import AllProducts from './pages/all-products.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <AllProducts />,
   },{
-    path: '/list-products',
-    element: <Example />
+    path: '/add-new',
+    element: <AddProductForm />
   },{
     path: '/products/:id',
-    element: <AboutUsPage />
+    element: <DetailProduct />
   }
 ]);
 

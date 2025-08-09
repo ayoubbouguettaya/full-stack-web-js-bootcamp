@@ -11,7 +11,9 @@ import {LoaderCircle} from "lucide-react"
 
 const App = () => {
 
-  const [orders,setOrders] = useState([])
+   const savedOrders =  JSON.parse(localStorage.getItem("orders")) || []
+
+  const [orders,setOrders] = useState(savedOrders)
   const [products,setProducts] = useState([])
 
   const [isLoading,setIsLoading] = useState(true)

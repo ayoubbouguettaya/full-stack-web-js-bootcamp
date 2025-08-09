@@ -25,6 +25,19 @@ app.get('/',async (req,res) => {
 })
 
 
+// user 
+app.get('/detail/:productId',async (req,res) => {
+
+
+    console.log('GET one product start BY ID : ',req.params.productId)
+    const result = await db.query('select * from public.product where id = $1',[req.params.productId])
+
+    console.log(result.rows[0],result.rowCount)
+    console.log('GET pne product end')
+
+    res.send(result.rows[0])
+})
+
 // admin
 app.post('/',async (req,res) => {
 

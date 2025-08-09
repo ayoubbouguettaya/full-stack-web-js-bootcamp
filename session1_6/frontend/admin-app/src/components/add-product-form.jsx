@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const Formulaire2 = () => {
+const AddProductForm = () => {
 
     const [productName,setProductName] = useState("")
     const [price,setPrice] = useState("")
@@ -69,4 +69,4 @@ const Formulaire2 = () => {
     </form>)
 }
 
-export default Formulaire2
+export default AddProductForm

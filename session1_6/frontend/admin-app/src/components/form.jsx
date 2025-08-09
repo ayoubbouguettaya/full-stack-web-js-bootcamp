@@ -1,11 +1,8 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 
 const Formulaire = () => {
-
     const [productName,setProductName] = useState("")
     const [price,setprice] = useState("")
-
-
 
     const handleOnChange = (event) => {
          

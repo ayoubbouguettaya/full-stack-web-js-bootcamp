@@ -1,6 +1,6 @@
 import '../App.css'
 import Example from '../components/example-tailwind'
-import Formulaire2 from '../components/form2'
+import Formulaire2 from '../components/add-product-form'
 
 import {useNavigate} from 'react-router-dom'
 

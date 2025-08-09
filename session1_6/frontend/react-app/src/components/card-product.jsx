@@ -7,6 +7,9 @@ const CardProduct = (props) => {
     const addCart = () => {
 
 
+        
+        
+        
         if(availableQuantity == 0) return;
         
         setavailableQuantity((prevS) => {
@@ -14,7 +17,9 @@ const CardProduct = (props) => {
         })
         console.log('#### ADD CART',props.orders)
         props.setOrders((prevS)=> {
-
+            
+            const allOrders = [props.name,...prevS]
+            localStorage.setItem("orders",JSON.stringify(allOrders))
 
             return ([props.name,...prevS])
         })
